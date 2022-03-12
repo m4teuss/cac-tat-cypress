@@ -153,4 +153,27 @@ describe('Central de atendimento do cliente TAT', function() {
     });
 
 
+
+    //** Avançando no uso do cypress **//
+
+    it.only('preenche os campos obrigatórios e envia o formularo', () =>{
+        const longtext = "Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste, Teste"
+        
+        cy.clock() // congela relogio do navegador
+
+        cy.get('#firstName').type('mateus')
+        cy.get('#lastName').type('Silva')
+        cy.get('#email').type('mateus@gmail.com')
+        //cy.get('#phone').type('11993654471')
+        cy.get('#open-text-area').type(longtext, {delay: 0}) //  objeto options com a propriedade {delay: 0}, para o teste rodar mais rápido.  
+        cy.get('button[type="submit"]').click()
+        cy.get('.success').should('be.visible')
+
+        cy.tick(3000) // aguarda 3 milesegundos
+
+        cy.get('.success').should('not.be.visible')
+    });
+
+
+
 }); // close describe

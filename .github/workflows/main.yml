@@ -1,8 +1,11 @@
 name: End-to-end tests 🧪
+# toda vez que der push, rodará a pipeline
 on: [push]
 jobs:
   cypress-run:
+    # os testes rodará no ubuntu
     runs-on: ubuntu-20.04
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
