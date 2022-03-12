@@ -138,7 +138,19 @@ describe('Central de atendimento do cliente TAT', function() {
         });
     });
 
-    
+
+    // <a href="privacy.html" target="_blank"> => Toda vez que existir [target="_blank"] o navegador abrirá em uma aba diferente
+    // O Comando invoke remove o (target="_blank")
+    it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', () => {
+        cy.get('#privacy a').should('have.attr', 'target', '_blank') // have.attr = tem.atributo target _blank
+    });
+
+    it('acessa a página da política de privacidade removendo o target e então clicanco no link', () => {
+        cy.get("#privacy a")
+        .invoke('removeAttr', 'target', '_blank') // remove o atributo target
+        .click() // e clica no link e abre a pagina na aba do cypress
+        cy.contains('Talking About Testing').should('be.visible')
+    });
 
 
 }); // close describe
