@@ -1,5 +1,4 @@
-// iniciar um novo comando no cypress
-
+// iniciar um novo comando no cypress (Cypress.Commands.add)
 // primeiro argumento é nome do comando (fillMandatoryFieldsAndSubmit), e o segundo é a função do arrow function. 
 Cypress.Commands.add('fillMandatoryFieldsAndSubmit',  () => {
     cy.get('#firstName').type('mateus')
