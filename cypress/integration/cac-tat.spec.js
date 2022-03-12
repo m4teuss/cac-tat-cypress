@@ -149,7 +149,7 @@ describe('Central de atendimento do cliente TAT', function() {
         cy.get("#privacy a")
         .invoke('removeAttr', 'target', '_blank') // remove o atributo target
         .click() // e clica no link e abre a pagina na aba do cypress
-        cy.contains('Talking About Testing').should('be.visible')
+        cy.contains('Talking About Testing').should('be.sible')
     });
 
 
